@@ -1,7 +1,0 @@
-#Strategy Pattern
-
-Problem: we have on class, duck, with a few behaviors (fly, quack, swim). There are child classes that may use each bahvior differently, or may not use them at all.
-
-Solution one: we could use inheritance, and each child class can override the behaviors. but this does not produce reusable code.
-
-Strategy Pattern: encapsulate the behavior in separate objects. let the concrete child classes set it to the encapsulated class.
