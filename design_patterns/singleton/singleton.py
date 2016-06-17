@@ -12,6 +12,9 @@ def singleton(object_in):
     return instances[object_in]
   return wrapper
 
+# potential bug: since this returns a function and not an object, you can't
+# directly call on class attributes
+
 # sample object
 
 @singleton
