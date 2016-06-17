@@ -3,7 +3,6 @@ from abc import abstractmethod
 # core, abstract class
 
 class Beverage(object):
-  description = ''
 
   def __init__(self): self.description = '<<Unknown Beverage>>'
 
@@ -33,7 +32,7 @@ class Espresso(Beverage):
 # decorator classes
 
 class CondimentDecorator(Beverage):
-  beverage = Beverage()
+  pass
 
 class Milk(CondimentDecorator):
   def __init__(self, beverage): self.beverage = beverage

@@ -22,10 +22,6 @@ class WeatherDisplay(object):
 
 class OurWeatherData(WeatherData, Subject):
   """build our weather data class on the vendor-supplied one"""
-  observers = []
-  temp = 0.0
-  humidity = 0.0
-  pressure = 0.0
 
   def __init__(self):
     self.observers = []
@@ -52,13 +48,12 @@ class OurWeatherData(WeatherData, Subject):
 
 class CurrentCondition(object):
   """an obsserver (object)"""
-  temp = 0
-  humidity = 0
-  weather_data = WeatherData()
 
   def __init__(self, weather_data):
     self.weather_data = weather_data
     weather_data.register_observer(self)
+    temp = 0
+    humidity = 0
 
   def update(self, temp, humidity, display):
     self.temp = temp

@@ -66,7 +66,6 @@ class ChicagoPizzaFactory(object):
 # store class
 
 class PizzaStore(object):
-  factory = PizzaFactory()
 
   def __init__(self, factory):
     self.factory = factory

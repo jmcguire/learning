@@ -3,11 +3,6 @@ from abc import abstractmethod
 # core, abstract class
 
 class Beverage(object):
-  description = ''
-  milk = None
-  soy = None
-  mocha = None
-  whip = None
 
   def get_description(self):
     print self.description

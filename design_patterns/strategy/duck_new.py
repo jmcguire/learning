@@ -33,8 +33,6 @@ class MuteQuack(QuackBehavior):
 # core, abstract class
 
 class Duck(object):
-  fly_bahvior = FlyBehavior
-  quack_bahvior = QuackBehavior
   def perform_quack(self): self.quack_behavior.quack()
   def perform_fly(self): self.fly_behavior.fly() 
   def swim(self): print "*swimming*"

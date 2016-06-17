@@ -6,9 +6,6 @@ class WeatherDisplay(object):
 
 class OurWeatherData(WeatherData):
   """build our weather data class on the vendor-supplied one"""
-  current_conditions_display = WeatherDisplay()
-  statistics_display = WeatherDisplay()
-  forecast_display = WeatherDisplay()
 
   def __init__(self):
     current_conditions_display = WeatherDisplay()
