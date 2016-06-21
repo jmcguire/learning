@@ -14,9 +14,7 @@ We are going to refactor our GumballMachine. Each state will be an object, and i
 
 The state pattern lets an object modify it's behaviors when its state changes.
 
-It's very similar to a Strategy Pattern, which doesn't have states but does have behiors that it may want to modify.
+It's very similar to a Strategy Pattern, but the State Pattern is built to modify behaviors at runtime, where the Strategy Pattern *can* do that too but isn't designed to.
 
 ## OO Principle
-
-
 
