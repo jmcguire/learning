@@ -4,7 +4,10 @@ A = [ 'b', 'f', 'c', 'd', 'a', 'e']
 def show(A):
   print ", ".join(A)
 
-# from 1 to length, place that element into the previous array
+# bubble sort:
+# look at each pair, if they're out of order then swap them
+# go through the entire list twice
+
 def bubble_sort(A):
   #print "from %d to %d" % (len(A)-1, 0)
   for i in range(len(A)-1, 0, -1):

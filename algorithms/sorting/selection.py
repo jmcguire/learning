@@ -4,6 +4,10 @@ A = [ 'b', 'f', 'c', 'd', 'a', 'e']
 def show(A):
   print ", ".join(A)
 
+# selection sort
+# find the highest element, and swap it with the last element
+# repeat for length - 1, length - 2, etc
+
 def selection_sort(A):
   # starting at the last element down to 0, see if there's an higher element, and swap it
   for i in range(len(A)-1, 0, -1):

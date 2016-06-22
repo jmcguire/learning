@@ -4,6 +4,10 @@ A = [ 'b', 'f', 'c', 'd', 'a', 'e']
 def show(A):
   print ", ".join(A)
 
+# insertion sort
+# look at the element at i, move it backwards one by one until it's in the right place
+# do this for i = 1 to length of array
+
 # from 1 to length, place that element into the previous array
 def insertion_sort(A):
   for i in range(0, len(A)):
