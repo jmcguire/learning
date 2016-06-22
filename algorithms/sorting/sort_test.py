@@ -1,11 +1,13 @@
 from mergesort import mergesort
-from bubble import bubble_sort
-from insertion import insertion_sort
+from bubble_sort import bubble_sort
+from insertion_sort import insertion_sort
 from quicksort import quicksort
-from selection import selection_sort
+from selection_sort import selection_sort
+
+import pprint
 
 def show(A):
-  print ", ".join(str(x) for x in A)
+  pprint.pprint(A)
 
 A = [ 'b', 'z', 'f', 'x', 'c', 'd', 'y', 'a', 'w', 'e']
 
