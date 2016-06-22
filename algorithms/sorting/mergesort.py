@@ -4,45 +4,62 @@
 # it needs to be refactored to use indexing in every function call, like quicksort
 
 def mergesort(A):
-  if len(A) < 2:
-    return A
+  new_A = list(A)
+  _mergesort(new_A, A, 0, len(A) - 1)
 
-  elif len(A) == 2:
-    if A[0] > A[1]:
-      A[0], A[1] = A[1], A[0]
-    return A
+def _mergesort(A, final, start, end):
+  # A is the array to sort
+  # final will hold the final sorted array
+  # start and end are the starting and ending points on A (and final)
+
+  #print "_mergesort: start: %d, end: %d" % (start, end)
+
+  if end - start < 1:
+    return
+
+  elif end - start == 1:
+    if final[end] < final[start]:
+      final[end], final[start] = final[start], final[end]
+    return
 
   else:
     # split up the array, and sort each half
-    middle = len(A)/2
-    left_A = mergesort(A[:middle])
-    right_A = mergesort(A[middle:])
+    middle = (start + end) / 2
+    _mergesort(final, A, start, middle)
+    _mergesort(final, A, middle+1, end)
     # then merge it all back
-    new_A = merge(left_A, right_A)
-    return new_A
+    _mergesort_merge(A, final, start, middle, end)
 
-def merge(left_A, right_A):
-  new_A = []
-  left_i = 0
-  right_i = 0
-  while 1:
-    if left_i >= len(left_A):
-      # if we are out of left_A, append the rest of right_A to new_A
-      new_A.extend(right_A[right_i:])
-      break
+def _mergesort_merge(A, final, start, middle, end):
+  """merge A[start:middle] and A{middle+1:end] into final"""
 
-    elif right_i >= len(right_A):
-      # if we are out of right_A, append the rest of left_A to new_A
-      new_A.extend(left_A[left_i:])
-      break
+  #print "start: %d, middle: %d, end: %d, array: %s" % (start, middle, end, ", ".join(str(x) for x in A[start:end+1]))
 
-    elif left_A[left_i] < right_A[right_i]:
-      new_A.append( left_A[left_i] )
-      left_i += 1
+  # to make it more clear what we're doing, lets use better variable names
+  final_idx = start
+  left = start
+  right = middle + 1
 
-    elif left_A[left_i] >= right_A[right_i]:
-      new_A.append( right_A[right_i] )
-      right_i += 1
+  while final_idx <= end:
+    # there are only two options, either take a piece from the left side, or
+    # take a piece from the ride side.
 
-  return new_A
+    #  - if left side is exhausted, take from the right
+    #  - if right side is exhausted, take from the left
+    #  - otherwise, compare the characters, and take the lowest
+
+    # but to avoid duplicating code, we combine all these choices all into a
+    # single complex if-else
+
+    if left < middle + 1 and (right > end or A[left] < A[right]):
+      final[final_idx] = A[left]
+      final_idx += 1
+      left += 1
+
+    else:
+      final[final_idx] = A[right]
+      final_idx += 1
+      right += 1
+
+    #print "  left: %d, right: %d, final_idx: %d (%s)" % (left, right, final_idx, final[:final_idx])
 
