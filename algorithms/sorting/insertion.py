@@ -1,7 +1,3 @@
-
-def show(A):
-  print ", ".join(A)
-
 # insertion sort
 # look at the element at i, move it backwards one by one until it's in the right place
 # do this for i = 1 to length of array
@@ -23,12 +19,4 @@ def _insert_sort(A, right):
     else:
       #print "  %s !< %s" % (A[i], A[i-1])
       break
-
-# testing
-
-A = [ 'b', 'z', 'f', 'x', 'c', 'd', 'y', 'a', 'w', 'e']
-
-show(A)
-insertion_sort(A)
-show(A)
 

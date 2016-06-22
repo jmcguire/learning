@@ -1,7 +1,3 @@
-
-def show(A):
-  print ", ".join(A)
-
 # bubble sort:
 # look at each pair, if they're out of order then swap them
 # go through the entire list twice
@@ -17,12 +13,4 @@ def bubble_sort(A):
         A[j], A[j-1] = A[j-1], A[j]
       #else: print "    %s !< %s" % (A[j], A[j-1])
     #show(A)
-
-# testing
-
-A = [ 'b', 'z', 'f', 'x', 'c', 'd', 'y', 'a', 'w', 'e']
-
-show(A)
-bubble_sort(A)
-show(A)
 

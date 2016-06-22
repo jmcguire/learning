@@ -1,7 +1,3 @@
-
-def show(A):
-  print ", ".join(A)
-
 # quicksort
 #
 # 1) pick a pivot element
@@ -40,12 +36,4 @@ def partition(A, left, right, pivot):
   #print "swapping %d (%s), %d (%s)" % (right, A[right], middle, A[middle])
   A[middle], A[right] = A[right], A[middle]
   return middle
-
-# testing
-
-A = [ 'b', 'z', 'f', 'x', 'c', 'd', 'y', 'a', 'w', 'e']
-    
-show(A)
-quicksort(A)
-show(A)
 

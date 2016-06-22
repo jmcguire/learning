@@ -1,7 +1,3 @@
-
-def show(A):
-  print ", ".join(str(x) for x in A)
-
 # mergesort:
 # this is a version with a lot of function calls and array copies
 # it demonstrates the general principle, but it does *not* work with just an extra O(n) space
@@ -49,19 +45,4 @@ def merge(left_A, right_A):
       right_i += 1
 
   return new_A
-
-# testing
-
-A = [ 'b', 'z', 'f', 'x', 'c', 'd', 'y', 'a', 'w', 'e']
-
-show(A)
-mergesort(A)
-show(A)
-
-#A = merge([1, 3, 6, 7], [0, 2, 4, 5, 8])
-#show(A)
-#A = merge([0, 1, 2, 3, 4], [5, 6, 7, 8])
-#show(A)
-#A = merge([5, 6, 7, 8], [0, 1, 2, 3, 4])
-#show(A)
 

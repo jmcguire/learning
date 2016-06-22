@@ -1,7 +1,3 @@
-
-def show(A):
-  print ", ".join(A)
-
 # selection sort
 # find the highest element, and swap it with the last element
 # repeat for length - 1, length - 2, etc
@@ -21,12 +17,4 @@ def selection_sort(A):
 
     # swap the new maximum with the highest
     A[i], A[max_element] = A[max_element], A[i]
-
-# testing
-
-A = [ 'b', 'z', 'f', 'x', 'c', 'd', 'y', 'a', 'w', 'e']
-
-show(A)
-selection_sort(A)
-show(A)
 
