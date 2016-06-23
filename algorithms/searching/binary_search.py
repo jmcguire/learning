@@ -8,9 +8,9 @@
 # required a list of sorted elements
 # look at the half-way mark, compare to e, move up or down, repeat
 
-def binary_search(A, e, start=0, end=None, prev_middle=None):
+def binary_search(A, e, start=0, end=None):
   if end is None:
-    end = len(A)
+    end = len(A)-1
 
   middle = (start + end) // 2
   check = A[middle]
@@ -18,15 +18,15 @@ def binary_search(A, e, start=0, end=None, prev_middle=None):
   #print "    start %d, end %d, middle %d (%s), prev_middle %s" % (start, end, middle, str(check), str(prev_middle))
 
   # check for failure
-  if start > end or middle == prev_middle:
+  if start > end:
     return False
 
   if e == check:
     return middle
   elif e > check:
-    return binary_search(A, e, middle, end, middle)
+    return binary_search(A, e, middle+1, end)
   elif e < check:
-    return binary_search(A, e, start, middle, middle)
+    return binary_search(A, e, start, middle-1)
 
 # testing
 
