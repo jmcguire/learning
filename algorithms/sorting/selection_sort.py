@@ -1,4 +1,10 @@
 # selection sort
+#
+# type: transposition
+# best time:    O(n²)
+# average time: O(n²)
+# worst time:   O(n²)
+#
 # find the highest element, and swap it with the last element
 # repeat for length - 1, length - 2, etc
 

@@ -1,5 +1,10 @@
 # quicksort
 #
+# type: divide and conquer
+# best time:    O(n logn)
+# average time: O(n logn)
+# worst time:   O(n²)
+#
 # 1) pick a pivot element
 # 2) move all the elements less than the pivot to the left of it, and larger
 #    than to the right
@@ -14,7 +19,6 @@ def _quicksort(A, left, right):
     pivot = pick_pivot(A, left, right)
     #print "from %d to %d, pivoting at %d (%s)" % (left, right, pivot, A[pivot])
     pivot = partition(A, left, right, pivot)
-    #show(A)
     _quicksort(A, left, pivot - 1)
     _quicksort(A, pivot + 1, right)
 

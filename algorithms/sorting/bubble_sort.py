@@ -1,4 +1,10 @@
 # bubble sort:
+#
+# type: transposition
+# best time:    O(n)
+# average time: O(n²)
+# worst time:   O(n²)
+#
 # look at each pair, if they're out of order then swap them
 # go through the entire list twice
 
@@ -12,5 +18,4 @@ def bubble_sort(A):
         #print "    %s < %s, swap" % (A[j], A[j-1])
         A[j], A[j-1] = A[j-1], A[j]
       #else: print "    %s !< %s" % (A[j], A[j-1])
-    #show(A)
 

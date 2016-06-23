@@ -1,4 +1,10 @@
 # heapsort
+#
+# type: transposition
+# best time:    O(n logn)
+# average time: O(n logn)
+# worst time:   O(n logn)
+#
 # construct a "tree" in the array
 # heapify the tree: each node is greater than it's children
 # this will place the largest element at the far left, 0

@@ -1,4 +1,10 @@
 # mergesort:
+#
+# type: sorting with extra storage, stable
+# best time:    O(n logn)
+# average time: O(n logn)
+# worst time:   O(n logn)
+#
 # split the list in half, sort those halfs individually, then merge the two
 # halves together.
 # how do we sort each half? by recursively calling mergesort on them, of
