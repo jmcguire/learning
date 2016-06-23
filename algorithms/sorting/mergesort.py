@@ -1,16 +1,17 @@
 # mergesort:
-# this is a version with a lot of function calls and array copies
-# it demonstrates the general principle, but it does *not* work with just an extra O(n) space
-# it needs to be refactored to use indexing in every function call, like quicksort
+# split the list in half, sort those halfs individually, then merge the two
+# halves together.
+# how do we sort each half? by recursively calling mergesort on them, of
+# course.
 
 def mergesort(A):
-  new_A = list(A)
-  _mergesort(new_A, A, 0, len(A) - 1)
+  temp = list(A)
+  _mergesort(A, temp, 0, len(A) - 1)
 
-def _mergesort(A, final, start, end):
+def _mergesort(A, temp, start, end):
   # A is the array to sort
-  # final will hold the final sorted array
-  # start and end are the starting and ending points on A (and final)
+  # start and end are the starting and ending points on A
+  # (start and end are *inclusive* pointers)
 
   #print "_mergesort: start: %d, end: %d" % (start, end)
 
@@ -18,29 +19,29 @@ def _mergesort(A, final, start, end):
     return
 
   elif end - start == 1:
-    if final[end] < final[start]:
-      final[end], final[start] = final[start], final[end]
+    if A[end] < A[start]:
+      A[end], A[start] = A[start], A[end]
     return
 
-  else:
-    # split up the array, and sort each half
-    middle = (start + end) / 2
-    _mergesort(final, A, start, middle)
-    _mergesort(final, A, middle+1, end)
-    # then merge it all back
-    _mergesort_merge(A, final, start, middle, end)
+  # split up the array, and sort each half
+  middle = (start + end) / 2
+  _mergesort(A, temp, start, middle)
+  _mergesort(A, temp, middle+1, end)
 
-def _mergesort_merge(A, final, start, middle, end):
+  # then merge it all back
+  _mergesort_merge(A, temp, start, middle, end)
+
+def _mergesort_merge(A, temp, start, middle, end):
   """merge A[start:middle] and A{middle+1:end] into final"""
 
   #print "start: %d, middle: %d, end: %d, array: %s" % (start, middle, end, ", ".join(str(x) for x in A[start:end+1]))
 
   # to make it more clear what we're doing, lets use better variable names
-  final_idx = start
+  idx = start
   left = start
   right = middle + 1
 
-  while final_idx <= end:
+  while idx <= end:
     # there are only two options, either take a piece from the left side, or
     # take a piece from the ride side.
 
@@ -52,14 +53,20 @@ def _mergesort_merge(A, final, start, middle, end):
     # single complex if-else
 
     if left < middle + 1 and (right > end or A[left] < A[right]):
-      final[final_idx] = A[left]
-      final_idx += 1
+      temp[idx] = A[left]
+      idx += 1
       left += 1
 
     else:
-      final[final_idx] = A[right]
-      final_idx += 1
+      temp[idx] = A[right]
+      idx += 1
       right += 1
 
-    #print "  left: %d, right: %d, final_idx: %d (%s)" % (left, right, final_idx, final[:final_idx])
+    #print "left: %d, right: %d, idx: %d (%s)" % (left, right, idx, temp[:idx])
+
+  # now copy temp back to A
+  # (there is a way to avoid this step, by reversing A and temp in the
+  # _mergesort recursive calls, but that complicates the learning.)
+  for i in range(start,end+1):
+    A[i] = temp[i]
 
