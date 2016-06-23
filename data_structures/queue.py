@@ -16,6 +16,9 @@ class Queue(LinkedList):
 
   def shift(self):
     """return the first element of the list"""
+    if self.size == 0:
+      return None
+
     node = self.first
     self.first = node.next_
     self.size -= 1
