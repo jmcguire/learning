@@ -27,7 +27,7 @@ class PancakeIterator(Iterator):
       self.pos += 1
       return item
     else:
-      raise "iterator is out of bounds: %d" % self.pos
+      raise Exception("iterator is out of bounds: %d" % self.pos)
 
 class DinerIterator(Iterator):
   """concrete iterator for our diner, or any array-based collection"""
@@ -47,7 +47,7 @@ class DinerIterator(Iterator):
       self.pos += 1
       return item
     else:
-      raise "iterator is out of bounds: %d" % self.pos
+      raise Exception("iterator is out of bounds: %d" % self.pos)
 
 # general-use classes
 
@@ -96,7 +96,7 @@ class Diner(object):
       self.menu_items[self.number_of_items] = menu_item
       self.number_of_items += 1
     else:
-      raise "maximum number of items reached!"
+      raise Exception("maximum number of items reached!")
 
   def get_iterator(self):
     iterator = DinerIterator(self.menu_items)

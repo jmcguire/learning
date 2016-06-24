@@ -43,7 +43,7 @@ class Diner(object):
       self.menu_items[self.number_of_items] = menu_item
       self.number_of_items += 1
     else:
-      raise "maximum number of items reached!"
+      raise Exception("maximum number of items reached!")
   def get_menu_items(self):
     return self.menu_items
 
