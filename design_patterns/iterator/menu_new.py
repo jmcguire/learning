@@ -67,6 +67,7 @@ class MenuItem(object):
 class PancakeHouse(object):
   """a collection based on a linked list"""
   def __init__(self):
+    self.name = "Breakfast Menu"
     self.menu_items = []
     self.add_menu_item("Pancakes", "Regular pancakes", 2.99, True)
     self.add_menu_item("Trucker Pancakes", "Pancakes with eggs", 3.99, None)
@@ -86,6 +87,7 @@ class Diner(object):
     self.menu_items = [None,None,None,None,None,None]
     self.max_items = 6
     self.number_of_items = 0
+    self.name = "Lunch Menu"
     self.add_menu_item("Soup", "Soup of the Day", 3.29, True)
     self.add_menu_item("BLT", "Bacon, Lettuce, Tomato, with optional Mutton", 2.99, None)
     self.add_menu_item("Hot Dog", "World famously cheap-ass hot dog", 0.25, None)
@@ -102,22 +104,31 @@ class Diner(object):
     iterator = DinerIterator(self.menu_items)
     return iterator
 
+class Waitress(object):
+  def __init__(self):
+    self.menus = []
+
+  def add_menu(self, menu):
+    self.menus.append(menu)
+
+  def print_menu(self):
+    """loop thru our iterators to loop thru our menu items"""
+    for menu in self.menus:
+      print "\n%s:" % menu.name
+      iterator = menu.get_iterator()
+      while iterator.has_next():
+        menu_item = iterator.get_next()
+        print "\t%s. %s -- %.2f" % (menu_item.get_name(), menu_item.get_desc(), menu_item.get_price())
+
+
 # testing      
 
 breakfast_menu = PancakeHouse()
-breakfast_iterator = breakfast_menu.get_iterator()
-
 lunch_menu = Diner()
-lunch_iterator = lunch_menu.get_iterator()
 
-def iterate_menu_items(iterator):
-  while iterator.has_next():
-    menu_item = iterator.get_next()
-    print "\t%s. %s -- %.2f" % (menu_item.get_name(), menu_item.get_desc(), menu_item.get_price())
+waitress = Waitress()
+waitress.add_menu(breakfast_menu)
+waitress.add_menu(lunch_menu)
 
-print "Breakfast Menu:"
-iterate_menu_items(breakfast_iterator)
-
-print "\nLunch Menu:"
-iterate_menu_items(lunch_iterator)
+waitress.print_menu()
 
