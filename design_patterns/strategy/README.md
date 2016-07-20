@@ -2,7 +2,7 @@
 
 ## Problem
 
-We have this class, Duck, with a few behaviors (fly, quack, swim). There are child classes to duck, like Mallard and DecoyDuck, that may use each bahvior differently, or may not use them at all.
+We have this class, Duck, with a few behaviors (fly, quack, swim). There are child classes to duck, like Mallard and DecoyDuck, that may use each behavior differently, or may not use them at all.
 
 ## Solution 1
 

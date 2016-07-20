@@ -6,11 +6,11 @@ We have coffee, and we have tea. Each one has it's own way of being prepared (it
 
 ## Solution 1
 
-Just create two algorithms and manage them separetely.
+Just create two algorithms and manage them separately.
 
 ## Template Pattern
 
-Make one algorithm, put it in a super class, CaffeinatedBeverage. Make both coffee and tea both sub classes CaffeinatedBeverage. Let coffee and tea just redfine certain steps, not the entire algorithm.
+Make one algorithm, put it in a super class, CaffeinatedBeverage. Make both coffee and tea both sub classes CaffeinatedBeverage. Let coffee and tea just redefine certain steps, not the entire algorithm.
 
 **Jargon:** The methods that don't change in an algorithm are called *concrete operations*. The abstract methods that are expected/required to be overwritten are called *primitive operations*.
 

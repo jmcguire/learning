@@ -4,7 +4,7 @@
 
 We have too many weird components that we would like to control through a single, simple interface.
 
-In this case it's a slew of home theatre components, that we would like to control with a single button.
+In this case it's a slew of home theater components, that we would like to control with a single button.
 
 ## Solution 1
 
@@ -18,5 +18,5 @@ Create a class that contains all the component classes, and make a simple interf
 
 Encapsulation of weird stuff.
 
-Principle of least knowledge. (or: Only talk to your friends, not your friends friends.) If our main code only interacts with the facade class, then it has fewer dependencies. Now whever a component changes we only have to look at the facade class, nowhere else.
+Principle of least knowledge. (or: Only talk to your friends, not your friends friends.) If our main code only interacts with the facade class, then it has fewer dependencies. Now whenever a component changes we only have to look at the facade class, nowhere else.
 

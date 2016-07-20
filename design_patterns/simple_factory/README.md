@@ -16,5 +16,5 @@ Remove all the pizza types from the PizzaStore. Instead have a single call to a 
 
 Encapsulation.
 
-All factory patterns encapulate object creation.
+All factory patterns encapsulate object creation.
 

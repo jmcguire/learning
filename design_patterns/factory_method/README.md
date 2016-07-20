@@ -10,14 +10,14 @@ Create the different factories, then each store has to load the factory and pass
 
 ## Factory Method Pattern
 
-Put the pizzacreation function back into the store class, but force subclasses to define it.
+Put the pizza creation function back into the store class, but force subclasses to define it.
 
  - In the Factory Pattern, we have a concrete class that has all the non-changing (common) elements, and is given a factory that contains all the changing elements. It uses the factory to generate the correct object.
- - In Factory Method Pattern, we have an abstract class that is has all the non-changing elements, and it is subclassed wholey for the changing elements. Instead of having separate factory objects, we the factory is baked into the class itself.
+ - In Factory Method Pattern, we have an abstract class that is has all the non-changing elements, and it is subclassed wholly for the changing elements. Instead of having separate factory objects, we the factory is baked into the class itself.
 
 ## OO Principle
 
-Encapulation.
+Encapsulation.
 
 Depend on abstractions, not concrete classes.
 

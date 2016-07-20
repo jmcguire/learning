@@ -12,9 +12,9 @@ In our first solution, the GumballMachine class contained all the user options, 
 
 We are going to refactor our GumballMachine. Each state will be an object, and it will contain the behavior for each possible user action. It's an inversion of our first solution, where each action contained behavior for each possible state.
 
-The state pattern lets an object modify it's behaviors when its state changes.
+The state pattern lets an object modify its behaviors when its state changes.
 
-It's very similar to a Strategy Pattern, but the State Pattern is built to modify behaviors at runtime, where the Strategy Pattern *can* do that too but isn't designed to.
+It's very similar to a Strategy Pattern, but the State Pattern is built to modify behaviors at runtime, where the Strategy Pattern *can* do that, but isn't designed to.
 
 ## OO Principle
 

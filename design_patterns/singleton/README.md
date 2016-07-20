@@ -6,7 +6,7 @@ We want to ensure that only a single instance of an object exists, no matter who
 
 ## Solution 1
 
-Use one global variable and instantiate it at the begining of your program.
+Use one global variable and instantiate it at the beginning of your program.
 
 ## Singleton
 

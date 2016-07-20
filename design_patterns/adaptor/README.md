@@ -17,7 +17,7 @@ Create a class that implements a duck using a turkey. Now that is a weird senten
 Now there are two different ways to make an adaptor, which depend on whether you have multiple inheritance or not.
 
  - An *object adaptor* is used when you *don't* have multiple inheritance. The adaptor inherits from the target class, and instance of the adaptee class. So it IS-A duck and HAS-A turkey.
- - A *class adaptor* is used when you *do* have multiple inhertiance. The adaptor inherits from both the target and the adaptee class. So it IS-A duck and IS-A turkey.
+ - A *class adaptor* is used when you *do* have multiple inheritance. The adaptor inherits from both the target and the adaptee class. So it IS-A duck and IS-A turkey.
 
 ## OO Principles
 
