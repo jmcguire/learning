@@ -16,10 +16,7 @@ class PancakeIterator(Iterator):
     self.pos = 0
 
   def has_next(self):
-    if self.pos < len(self.items):
-      return True
-    else:
-      return False
+    return bool(self.pos < len(self.items))
 
   def get_next(self):
     if self.pos < len(self.items):
@@ -36,10 +33,7 @@ class DinerIterator(Iterator):
     self.pos = 0
 
   def has_next(self):
-    if self.pos < len(self.items) and self.items[self.pos] is not None:
-      return True
-    else:
-      return False
+    return bool(self.pos < len(self.items) and self.items[self.pos] is not None)
 
   def get_next(self):
     if self.pos < len(self.items) and self.items[self.pos] is not None:
@@ -54,7 +48,7 @@ class DinerIterator(Iterator):
 class MenuItem(object):
   def __init__(self, name, desc, veggie, price):
     self.name = name
-    self.desc = desc 
+    self.desc = desc
     self.veggie = veggie
     self.price = price
   def get_name(self): return self.name
@@ -84,7 +78,7 @@ class PancakeHouse(object):
 class Diner(object):
   """an collection based on an array, which is pretty hard to do in python"""
   def __init__(self):
-    self.menu_items = [None,None,None,None,None,None]
+    self.menu_items = [None, None, None, None, None, None]
     self.max_items = 6
     self.number_of_items = 0
     self.name = "Lunch Menu"
@@ -118,10 +112,11 @@ class Waitress(object):
       iterator = menu.get_iterator()
       while iterator.has_next():
         menu_item = iterator.get_next()
-        print "\t%s. %s -- %.2f" % (menu_item.get_name(), menu_item.get_desc(), menu_item.get_price())
+        print "\t%s. %s -- %.2f" % (menu_item.get_name(), menu_item.get_desc(),
+                                    menu_item.get_price())
 
 
-# testing      
+# testing
 
 if __name__ == '__main__':
 

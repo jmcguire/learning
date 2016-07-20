@@ -1,5 +1,3 @@
-import pprint
-
 # general-use classes
 
 class MenuItem(object):
@@ -31,7 +29,7 @@ class PancakeHouse(object):
 class Diner(object):
   """an collection based on an array, which is pretty hard to do in python"""
   def __init__(self):
-    self.menu_items = [None,None,None,None,None,None]
+    self.menu_items = [None, None, None, None, None, None]
     self.max_items = 6
     self.number_of_items = 0
     self.add_menu_item("Soup", "Soup of the Day", 3.29, True)
@@ -47,7 +45,7 @@ class Diner(object):
   def get_menu_items(self):
     return self.menu_items
 
-# testing      
+# testing
 
 if __name__ == '__main__':
 
@@ -66,7 +64,7 @@ if __name__ == '__main__':
 
   print "\nLunch Menu:"
   for i in range(len(lunch_items)):
-    if lunch_items[i] is None:
+    if not lunch_items[i]:
       continue
     menu_item = lunch_items[i]
     print_menu_item(menu_item)

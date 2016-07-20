@@ -4,20 +4,17 @@ from abc import abstractmethod
 
 class MenuComponent(object):
   """An abstract class to define an implementation"""
-  def __init__(self):
-    self.name = self.price = self.desc = self.is_veggie = None
-
   @abstractmethod
   def print_(self): pass
 
   @abstractmethod
-  def add(self): pass
+  def add(self, component): pass
 
   @abstractmethod
-  def remove(self): pass
+  def remove(self, component): pass
 
   @abstractmethod
-  def get_child(self): pass
+  def get_child(self, i): pass
 
 
 class MenuItem(MenuComponent):
@@ -35,7 +32,7 @@ class MenuItem(MenuComponent):
       veggie_string = " (v)"
 
     print "\t%s. %s%s -- %.2f" % (self.name, self.desc, veggie_string, self.price)
-  
+
 
 class MenuComposite(MenuComponent):
   """a composite  node, that holds more MenuComponents"""
@@ -47,7 +44,7 @@ class MenuComposite(MenuComponent):
   def add(self, component):
     self.components.append(component)
 
-  def remove(self):
+  def remove(self, component):
     self.components.remove(component)
 
   def get_child(self, i):
@@ -71,24 +68,24 @@ class Waitress(object):
 
   def print_menu(self):
     self.menu.print_()
-  
-# testing      
+ 
+# testing
 
 def create_test_data():
   pancake_house = MenuComposite("Breakfast", "Pancakes and breakfast items")
   cafe = MenuComposite("Lunch", "Classic cafe lunch items")
   dessert = MenuComposite("Dessert", "Simple desserts")
 
-  pancake_house.add( MenuItem("Pancakes", "Regular pancakes", 2.99, True) )
-  pancake_house.add( MenuItem("Trucker Pancakes", "Pancakes with eggs", 3.99, None) )
-  pancake_house.add( MenuItem("Waffles", "Waffles with Maple Syrup", 4.99, True) )
+  pancake_house.add(MenuItem("Pancakes", "Regular pancakes", 2.99, True))
+  pancake_house.add(MenuItem("Trucker Pancakes", "Pancakes with eggs", 3.99, None))
+  pancake_house.add(MenuItem("Waffles", "Waffles with Maple Syrup", 4.99, True))
 
-  cafe.add( MenuItem("Soup", "Soup of the Day", 3.29, True) )
-  cafe.add( MenuItem("BLT", "Bacon, Lettuce, Tomato, with optional Mutton", 2.99, None) )
-  cafe.add( MenuItem("Hot Dog", "World famously cheap-ass hot dog", 0.25, None) )
+  cafe.add(MenuItem("Soup", "Soup of the Day", 3.29, True))
+  cafe.add(MenuItem("BLT", "Bacon, Lettuce, Tomato, with optional Mutton", 2.99, None))
+  cafe.add(MenuItem("Hot Dog", "World famously cheap-ass hot dog", 0.25, None))
 
-  dessert.add( MenuItem("Apple Pie", "Homemade Grandma-approved apple pie", 1.59, True) )
-  dessert.add( MenuItem("Ice Cream", "Two scoops of our ice cream of the day", 1.00, True) )
+  dessert.add(MenuItem("Apple Pie", "Homemade Grandma-approved apple pie", 1.59, True))
+  dessert.add(MenuItem("Ice Cream", "Two scoops of our ice cream of the day", 1.00, True))
   cafe.add(dessert)
 
   restaurant_menu = MenuComposite("Restaurant Menu", "Welcome to our restaurant")
@@ -102,5 +99,4 @@ if __name__ == '__main__':
   restaurant_menu = create_test_data()
   waitress = Waitress(restaurant_menu)
   waitress.print_menu()
-
 

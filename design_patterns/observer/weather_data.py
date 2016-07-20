@@ -1,4 +1,4 @@
-from abc import ABCMeta, abstractmethod
+from abc import abstractmethod
 
 class WeatherData(object):
   """a vendor-supplied weather class. it will call the measurements_changed when appropriate"""

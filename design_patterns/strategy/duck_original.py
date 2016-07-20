@@ -1,10 +1,10 @@
-from abc import ABCMeta, abstractmethod
+from abc import abstractmethod
 
 # core, abstract class
 
 class Duck(object):
   def quack(self): print "*quack*"
-  def swim(self): print "*swimming*" 
+  def swim(self): print "*swimming*"
   def fly(self): print "*flap flap*"
 
   @abstractmethod

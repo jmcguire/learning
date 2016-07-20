@@ -1,4 +1,4 @@
-from abc import ABCMeta, abstractmethod
+from abc import abstractmethod
 from weather_data import WeatherData
 
 # observer pattern generic classes
@@ -9,7 +9,7 @@ class Subject(object):
   @abstractmethod
   def remove_observer(self, o): pass
   @abstractmethod
-  def notify_observer(self): pass
+  def notify_observers(self): pass
 
 class Observer(object):
   def update(self, temp, humidity, pressure): pass
@@ -24,6 +24,9 @@ class OurWeatherData(WeatherData, Subject):
   """build our weather data class on the vendor-supplied one"""
 
   def __init__(self):
+    self.temp = 0
+    self.humidity = 0
+    self.pressure = 0
     self.observers = []
 
   def register_observer(self, o):
@@ -52,12 +55,13 @@ class CurrentCondition(object):
   def __init__(self, weather_data):
     self.weather_data = weather_data
     weather_data.register_observer(self)
-    temp = 0
-    humidity = 0
+    self.temp = 0
+    self.humidity = 0
 
-  def update(self, temp, humidity, display):
+  def update(self, temp, humidity, pressure):
     self.temp = temp
     self.humidity = humidity
+    self.pressure = pressure
     self.display()
 
   def display(self):

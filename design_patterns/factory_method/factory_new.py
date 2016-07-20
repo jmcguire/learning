@@ -44,7 +44,7 @@ class PizzaStore(object):
 class NYPizzaStore(PizzaStore):
   """implements an abstract factory be deciding what kind of pizza gets made"""
   def create_pizza(self, pizza_type):
-    pizza = object
+    pizza = None
 
     if pizza_type == 'cheese':
       pizza = NYCheesePizza()
@@ -62,7 +62,7 @@ class NYPizzaStore(PizzaStore):
 class ChicagoPizzaStore(PizzaStore):
   """implements an abstract factory be deciding what kind of pizza gets made"""
   def create_pizza(self, pizza_type):
-    pizza = object
+    pizza = None
 
     if pizza_type == 'cheese':
       pizza = ChicagoCheesePizza()

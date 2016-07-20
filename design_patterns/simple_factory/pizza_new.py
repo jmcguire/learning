@@ -42,7 +42,7 @@ class PizzaStore(object):
     self.factory = factory
 
   def order_pizza(self, pizza_type):
-    pizza = self.factory.create_pizza()
+    pizza = self.factory.create_pizza(pizza_type)
 
     pizza.prepare()
     pizza.bake()

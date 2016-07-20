@@ -2,7 +2,8 @@
 # we don't need the full gumball machine from the "state" design pattern.
 # here's a neutered one.
 
-class MachineState:
+class MachineState(object):
+  """an enum"""
   sold_out = 0
   no_quarter = 1
   has_quarter = 2
@@ -15,14 +16,14 @@ class GumballMachine(object):
     self.state = MachineState.no_quarter
 
   def get_state(self):
-  	if self.state == MachineState.sold_out:
-  		return "sold out"
-  	elif self.state == MachineState.no_quarter:
-  		return "waiting for quarter"
-  	elif self.state == MachineState.has_quarter:
-  		return "has quarter"
-  	elif self.state == MachineState.sold:
-  		return "sold"
+    if self.state == MachineState.sold_out:
+      return "sold out"
+    elif self.state == MachineState.no_quarter:
+      return "waiting for quarter"
+    elif self.state == MachineState.has_quarter:
+      return "has quarter"
+    elif self.state == MachineState.sold:
+      return "sold"
 
 # the main class of this exercise
 

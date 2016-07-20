@@ -1,5 +1,4 @@
 from abc import abstractmethod
-import itertools
 
 # abstract command class
 
@@ -111,7 +110,7 @@ class StereoCDOnCommand(Command):
   def undo(self):
     # our stereo required a more complicated undo command, for volume
     self.stereo.off()
-    self.stereo.set_volume( self.previous_volume )
+    self.stereo.set_volume(self.previous_volume)
 
 class StereoCDOffCommand(Command):
   def __init__(self, stereo):
@@ -124,7 +123,7 @@ class StereoCDOffCommand(Command):
   def undo(self):
     self.stereo.on()
     self.stereo.set_cd()
-    self.stereo.set_volume( self.previous_volume )
+    self.stereo.set_volume(self.previous_volume)
 
 # and the remote control that uses the command wrappers
 
@@ -145,7 +144,7 @@ class RemoteControl(object):
 
     no_command = NoCommand()
     self.no_command = no_command
-    for slot in range(7):
+    for _ in range(7):
       self.on_commands.append(no_command)
       self.off_commands.append(no_command)
 

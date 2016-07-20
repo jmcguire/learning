@@ -41,7 +41,7 @@ class HomeTheatreFacade(object):
     self.screen.raise_()
     self.lights.full()
     self.popcorn.off()
-          
+
 # testing
 
 if __name__ == '__main__':

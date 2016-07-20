@@ -29,7 +29,7 @@ class NYPizzaFactory(object):
   """ figure out what type of NY pizza to make """
 
   def create_pizza(self, pizza_type):
-    pizza = object
+    pizza = None
 
     if pizza_type == 'cheese':
       pizza = NYCheesePizza()
@@ -48,7 +48,7 @@ class ChicagoPizzaFactory(object):
   """ figure out what type of chicago pizza to make """
 
   def create_pizza(self, pizza_type):
-    pizza = object
+    pizza = None
 
     if pizza_type == 'cheese':
       pizza = ChicagoCheesePizza()

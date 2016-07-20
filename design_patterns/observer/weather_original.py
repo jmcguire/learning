@@ -8,15 +8,15 @@ class OurWeatherData(WeatherData):
   """build our weather data class on the vendor-supplied one"""
 
   def __init__(self):
-    current_conditions_display = WeatherDisplay()
-    statistics_display = WeatherDisplay()
-    forecast_display = WeatherDisplay()
-  
+    self.current_conditions_display = WeatherDisplay()
+    self.statistics_display = WeatherDisplay()
+    self.forecast_display = WeatherDisplay()
+
   def measurements_changed(self):
     temp = self.get_temp()
     humidity = self.get_humidity()
     pressure = self.get_pressure()
-    current_conditions_display.update(temp, humidity, pressure)
-    statistics_display.update(temp, humidity, pressure)
-    forecast_display.update(temp, humidity, pressure)
+    self.current_conditions_display.update(temp, humidity, pressure)
+    self.statistics_display.update(temp, humidity, pressure)
+    self.forecast_display.update(temp, humidity, pressure)
 

@@ -3,7 +3,7 @@
 
 class PizzaStore(object):
 
-  def order_pizza(pizza_type):
+  def order_pizza(self, pizza_type):
     pizza = object
 
     if pizza_type == 'cheese':

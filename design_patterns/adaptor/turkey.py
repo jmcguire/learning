@@ -40,7 +40,7 @@ class TurkeyAdaptor(Duck):
   def quack(self):
     self.turkey.gobble()
   def fly(self):
-    for i in range(3):
+    for _ in range(3):
       self.turkey.fly()
 
 # testing

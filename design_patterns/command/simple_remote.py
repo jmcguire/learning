@@ -35,6 +35,8 @@ class GarageDoor(object):
 
 class SimpleRemoteControl(object):
   """a simple remote that holds a single command"""
+  def __init__(self):
+    self.slot = None
   def set_command(self, command):
     self.slot = command
   def press_button(self):

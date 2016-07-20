@@ -3,9 +3,6 @@ from abc import abstractmethod
 # core, abstract class
 
 class Beverage(object):
-
-  def __init__(self): self.description = '<<Unknown Beverage>>'
-
   def get_description(self): return self.description
 
   @abstractmethod
