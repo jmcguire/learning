@@ -14,5 +14,5 @@ Move the behavior to separate objects, each Duck HAS-A behavior. Force the concr
 
 ## OO Principle
 
-Encapsulation.
+Encapsulate behavior that changes.
 

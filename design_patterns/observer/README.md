@@ -20,5 +20,5 @@ Let other classes (objects) "subscribe" to the weather data (subject). They can 
 
 ## OO Principle
 
-Loose coupling.
+Loose coupling between objects that interact.
 
