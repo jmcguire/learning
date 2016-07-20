@@ -56,6 +56,7 @@ def print_veggie_menu(self):
 
 Waitress.print_veggie_menu = print_veggie_menu
 
+
 # testing
 
 if __name__ == '__main__':
