@@ -1,45 +1,41 @@
-from menu import MenuComponent, MenuItem, MenuComposite, Waitress
+from menu import MenuComponent, MenuItem, MenuComposite, create_test_data
 
 class MenuComponentIterator(object):
   """an iterator for MenuComponent"""
   def __init__(self, component):
     self.component = component
     self.i = 0
-    self.sub_iterator = None
+    self.sub_iter = None
 
   def __iter__(self):
     return self
 
   def next(self):
 
-"""
+    # if we're in a submenu, continue handling it
+    if self.sub_iter:
+      try:
+        return_ = self.sub_iter.next()
+        return return_
+      except StopIteration:
+        self.sub_iter = None
 
-the iterator has i, the ith element of menucomponent
-the iterator has sub_iterator, which means we're working with a submenu
+    # check that we're still in bounds
+    if self.i >= len(self.component.components):
+      raise StopIteration()
 
-if we have a subiterator:
-  if subiterator has another element:
-    return it
-  if we catch a StopIteration:
-    clear the sub_iterator
-    continue with rest of this function
+    # get the next item
+    item = self.component.get_child(self.i)
+    self.i += 1
 
-if i < max_element
-  raise StopIteration()
-
-grab the ith element
-
-increment i
-
-if the element is an item:
-  return the item
-if the element is a composite:
-  create an iterator for it
-  set our sub_iterator
-  call self.next
-
-
-"""
+    # and handle it
+    if type(item) is MenuItem:
+      return item
+    elif type(item) is MenuComposite:
+      self.sub_iter = iter(item)
+      return self.next()
+    else:
+      raise Exception("Something has gone terribly wrong.")
 
 
 # teach MenuComponent how to iterate over itself
@@ -47,7 +43,7 @@ if the element is a composite:
 def menu_component_iter(self):
   return MenuComponentIterator(self)
 
-class MenuComponent.__iter__ = menu_component_iter
+MenuComponent.__iter__ = menu_component_iter
 
 
 # testing
