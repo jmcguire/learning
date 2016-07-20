@@ -14,3 +14,7 @@ These come from *Head First Design Patterns*, which is all Java.
 
 These come from *Algorithms in a Nutshell, 2nd edition*. The code in the book is mostly Java with scattered Python showers.
 
+## Learn Python the Hard Way
+
+This is exactly what is sounds like. See http://learnpythonthehardway.org/ .
+
