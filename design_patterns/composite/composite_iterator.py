@@ -1,4 +1,4 @@
-from menu import MenuComponent, MenuItem, MenuComposite, create_test_data
+from menu import MenuComponent, MenuItem, MenuComposite, create_test_data, Waitress
 
 class MenuComponentIterator(object):
   """an iterator for MenuComponent"""
@@ -29,9 +29,9 @@ class MenuComponentIterator(object):
     self.i += 1
 
     # and handle it
-    if type(item) is MenuItem:
+    if isinstance(item, MenuItem):
       return item
-    elif type(item) is MenuComposite:
+    elif isinstance(item, MenuComposite):
       self.sub_iter = iter(item)
       return self.next()
     else:
@@ -46,11 +46,20 @@ def menu_component_iter(self):
 MenuComponent.__iter__ = menu_component_iter
 
 
+# give Waitress the ability to print a vegetarian menu
+
+def print_veggie_menu(self):
+  print "\nVegetarian Menu\n%s" % ("-" * 20)
+  for item in self.menu:
+    if item.is_veggie:
+      item.print_()
+
+Waitress.print_veggie_menu = print_veggie_menu
+
 # testing
 
 if __name__ == '__main__':
   restaurant_menu = create_test_data()
-
-  for item in restaurant_menu:
-    item.print_()
+  waitress = Waitress(restaurant_menu)
+  waitress.print_veggie_menu()
 

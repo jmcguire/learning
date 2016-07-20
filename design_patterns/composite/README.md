@@ -22,5 +22,9 @@ We turn all the lists into an old-fashion, computer-science tree. Every actual m
 
 Waitress becomes much easier. We just pass her the top level menu node.
 
+## Composite Iterator
+
+We also want to create an iterator for the new composite class. We'll use a pythonic `iter()`.
+
 ## OO Principle
 
