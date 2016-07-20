@@ -123,12 +123,14 @@ class Waitress(object):
 
 # testing      
 
-breakfast_menu = PancakeHouse()
-lunch_menu = Diner()
+if __name__ == '__main__':
 
-waitress = Waitress()
-waitress.add_menu(breakfast_menu)
-waitress.add_menu(lunch_menu)
+  breakfast_menu = PancakeHouse()
+  lunch_menu = Diner()
 
-waitress.print_menu()
+  waitress = Waitress()
+  waitress.add_menu(breakfast_menu)
+  waitress.add_menu(lunch_menu)
+
+  waitress.print_menu()
 

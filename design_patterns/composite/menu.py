@@ -74,30 +74,31 @@ class Waitress(object):
   
 # testing      
 
-def create_test_data():
-  pancake_house = MenuComposite("Breakfast", "Pancakes and breakfast items")
-  cafe = MenuComposite("Lunch", "Classic cafe lunch items")
-  dessert = MenuComposite("Dessert", "Simple desserts")
-
-  pancake_house.add( MenuItem("Pancakes", "Regular pancakes", 2.99, True) )
-  pancake_house.add( MenuItem("Trucker Pancakes", "Pancakes with eggs", 3.99, None) )
-  pancake_house.add( MenuItem("Waffles", "Waffles with Maple Syrup", 4.99, True) )
-
-  cafe.add( MenuItem("Soup", "Soup of the Day", 3.29, True) )
-  cafe.add( MenuItem("BLT", "Bacon, Lettuce, Tomato, with optional Mutton", 2.99, None) )
-  cafe.add( MenuItem("Hot Dog", "World famously cheap-ass hot dog", 0.25, None) )
-
-  dessert.add( MenuItem("Apple Pie", "Homemade Grandma-approved apple pie", 1.59, True) )
-  dessert.add( MenuItem("Ice Cream", "Two scoops of our ice cream of the day", 1.00, True) )
-  cafe.add(dessert)
-
-  restaurant_menu = MenuComposite("Restaurant Menu", "Welcome to our restaurant")
-  restaurant_menu.add(pancake_house)
-  restaurant_menu.add(cafe)
-
-  return restaurant_menu
-
 if __name__ == '__main__':
+
+  def create_test_data():
+    pancake_house = MenuComposite("Breakfast", "Pancakes and breakfast items")
+    cafe = MenuComposite("Lunch", "Classic cafe lunch items")
+    dessert = MenuComposite("Dessert", "Simple desserts")
+
+    pancake_house.add( MenuItem("Pancakes", "Regular pancakes", 2.99, True) )
+    pancake_house.add( MenuItem("Trucker Pancakes", "Pancakes with eggs", 3.99, None) )
+    pancake_house.add( MenuItem("Waffles", "Waffles with Maple Syrup", 4.99, True) )
+
+    cafe.add( MenuItem("Soup", "Soup of the Day", 3.29, True) )
+    cafe.add( MenuItem("BLT", "Bacon, Lettuce, Tomato, with optional Mutton", 2.99, None) )
+    cafe.add( MenuItem("Hot Dog", "World famously cheap-ass hot dog", 0.25, None) )
+
+    dessert.add( MenuItem("Apple Pie", "Homemade Grandma-approved apple pie", 1.59, True) )
+    dessert.add( MenuItem("Ice Cream", "Two scoops of our ice cream of the day", 1.00, True) )
+    cafe.add(dessert)
+
+    restaurant_menu = MenuComposite("Restaurant Menu", "Welcome to our restaurant")
+    restaurant_menu.add(pancake_house)
+    restaurant_menu.add(cafe)
+
+    return restaurant_menu
+
   restaurant_menu = create_test_data()
   waitress = Waitress(restaurant_menu)
   waitress.print_menu()

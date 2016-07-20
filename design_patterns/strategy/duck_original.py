@@ -30,10 +30,12 @@ class DecoyDuck(Duck):
 
 # testing
 
-for duck in Mallard(), RedHeadDuck(), RubberDuck(), DecoyDuck():
-  duck.display()
-  duck.quack()
-  duck.swim()
-  duck.fly()
-  print ""
+if __name__ == '__main__':
+
+  for duck in Mallard(), RedHeadDuck(), RubberDuck(), DecoyDuck():
+    duck.display()
+    duck.quack()
+    duck.swim()
+    duck.fly()
+    print ""
 

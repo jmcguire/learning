@@ -21,22 +21,24 @@ class DvdPlayer(object):
 
 # testing
 
-popcorn = PopcornMaker()
-lights = Lights()
-screen = Screen()
-dvd = DvdPlayer()
+if __name__ == '__main__':
 
-print "starting movie..."
-popcorn.on()
-popcorn.pop()
-lights.dim()
-screen.lower()
-dvd.on()
-dvd.play()
+  popcorn = PopcornMaker()
+  lights = Lights()
+  screen = Screen()
+  dvd = DvdPlayer()
 
-print "\ndone with movie..."
-dvd.off()
-screen.raise_()
-lights.full()
-popcorn.off()
+  print "starting movie..."
+  popcorn.on()
+  popcorn.pop()
+  lights.dim()
+  screen.lower()
+  dvd.on()
+  dvd.play()
+
+  print "\ndone with movie..."
+  dvd.off()
+  screen.raise_()
+  lights.full()
+  popcorn.off()
 

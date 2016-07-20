@@ -26,11 +26,13 @@ class GlobalCount(object):
 
 # testing
 
-temp_a = GlobalCount(1)
-temp_a.get_count()
+if __name__ == '__main__':
 
-temp_b = GlobalCount(2)
-temp_b.get_count()
+  temp_a = GlobalCount(1)
+  temp_a.get_count()
 
-temp_a.get_count()
+  temp_b = GlobalCount(2)
+  temp_b.get_count()
+
+  temp_a.get_count()
 

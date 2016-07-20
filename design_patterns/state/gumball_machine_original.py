@@ -81,35 +81,37 @@ class GumballMachine(object):
 
 # testing
 
-gm = GumballMachine(5)
-gm.show_state()
+if __name__ == '__main__':
 
-gm.insert_quarter()
-gm.turn_crank()
+  gm = GumballMachine(5)
+  gm.show_state()
 
-gm.show_state()
+  gm.insert_quarter()
+  gm.turn_crank()
 
-gm.insert_quarter()
-gm.eject_quarter()
-gm.turn_crank()
+  gm.show_state()
 
-gm.show_state()
+  gm.insert_quarter()
+  gm.eject_quarter()
+  gm.turn_crank()
 
-gm.insert_quarter()
-gm.turn_crank()
-gm.insert_quarter()
-gm.turn_crank()
-gm.eject_quarter()
+  gm.show_state()
 
-gm.show_state()
+  gm.insert_quarter()
+  gm.turn_crank()
+  gm.insert_quarter()
+  gm.turn_crank()
+  gm.eject_quarter()
 
-gm.insert_quarter()
-gm.insert_quarter()
-gm.turn_crank()
-gm.insert_quarter()
-gm.turn_crank()
-gm.insert_quarter()
-gm.turn_crank()
+  gm.show_state()
 
-gm.show_state()
+  gm.insert_quarter()
+  gm.insert_quarter()
+  gm.turn_crank()
+  gm.insert_quarter()
+  gm.turn_crank()
+  gm.insert_quarter()
+  gm.turn_crank()
+
+  gm.show_state()
 

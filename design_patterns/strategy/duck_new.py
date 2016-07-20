@@ -76,17 +76,19 @@ class ModelDuck(Duck):
 
 # testing
 
-for duck in Mallard(), RedHeadDuck(), RubberDuck(), DecoyDuck():
+if __name__ == '__main__':
+
+  for duck in Mallard(), RedHeadDuck(), RubberDuck(), DecoyDuck():
+    duck.display()
+    duck.perform_quack()
+    duck.swim()
+    duck.perform_fly()
+    print ""
+
+  duck = ModelDuck()
   duck.display()
-  duck.perform_quack()
-  duck.swim()
+  duck.perform_fly()
+  duck.set_fly_behavior(FlyRocketPowered())
   duck.perform_fly()
   print ""
-
-duck = ModelDuck()
-duck.display()
-duck.perform_fly()
-duck.set_fly_behavior(FlyRocketPowered())
-duck.perform_fly()
-print ""
 

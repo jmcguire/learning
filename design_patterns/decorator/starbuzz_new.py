@@ -56,21 +56,23 @@ class Whip(CondimentDecorator):
 
 # testing
 
-def display(beverage):
-  print "%s $%.2f" % (beverage.get_description(), beverage.cost())
+if __name__ == '__main__':
 
-b1 = Espresso()
-display(b1)
+  def display(beverage):
+    print "%s $%.2f" % (beverage.get_description(), beverage.cost())
 
-b2 = DarkRoast()
-b2 = Mocha(b2)
-b2 = Mocha(b2)
-b2 = Whip(b2)
-display(b2)
+  b1 = Espresso()
+  display(b1)
 
-b3 = HouseBlend()
-b3 = Soy(b3)
-b3 = Mocha(b3)
-b3 = Whip(b3)
-display(b3)
+  b2 = DarkRoast()
+  b2 = Mocha(b2)
+  b2 = Mocha(b2)
+  b2 = Whip(b2)
+  display(b2)
+
+  b3 = HouseBlend()
+  b3 = Soy(b3)
+  b3 = Mocha(b3)
+  b3 = Whip(b3)
+  display(b3)
 

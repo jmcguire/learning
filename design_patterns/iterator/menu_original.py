@@ -49,23 +49,25 @@ class Diner(object):
 
 # testing      
 
-breakfast_menu = PancakeHouse()
-breakfast_items = breakfast_menu.get_menu_items()
+if __name__ == '__main__':
 
-lunch_menu = Diner()
-lunch_items = lunch_menu.get_menu_items()
+  breakfast_menu = PancakeHouse()
+  breakfast_items = breakfast_menu.get_menu_items()
 
-def print_menu_item(menu_item):
-  print "\t%s. %s -- %.2f" % (menu_item.get_name(), menu_item.get_desc(), menu_item.get_price())
+  lunch_menu = Diner()
+  lunch_items = lunch_menu.get_menu_items()
 
-print "Breakfast Menu:"
-for menu_item in breakfast_items:
-  print_menu_item(menu_item)
+  def print_menu_item(menu_item):
+    print "\t%s. %s -- %.2f" % (menu_item.get_name(), menu_item.get_desc(), menu_item.get_price())
 
-print "\nLunch Menu:"
-for i in range(len(lunch_items)):
-  if lunch_items[i] is None:
-    continue
-  menu_item = lunch_items[i]
-  print_menu_item(menu_item)
+  print "Breakfast Menu:"
+  for menu_item in breakfast_items:
+    print_menu_item(menu_item)
+
+  print "\nLunch Menu:"
+  for i in range(len(lunch_items)):
+    if lunch_items[i] is None:
+      continue
+    menu_item = lunch_items[i]
+    print_menu_item(menu_item)
 

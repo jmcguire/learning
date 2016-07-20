@@ -65,16 +65,18 @@ class CurrentCondition(object):
 
 # testing
 
-weather_station = OurWeatherData()
+if __name__ == '__main__':
 
-current_conditions_display = CurrentCondition(weather_station)
-statistics_display = CurrentCondition(weather_station)
-forecast_display = CurrentCondition(weather_station)
+  weather_station = OurWeatherData()
 
-weather_station.set_measurements(80, 65, 30.4)
-print
-weather_station.set_measurements(82, 70, 29.2)
-print
-weather_station.remove_observer(statistics_display)
-weather_station.set_measurements(78, 95, 29.2)
+  current_conditions_display = CurrentCondition(weather_station)
+  statistics_display = CurrentCondition(weather_station)
+  forecast_display = CurrentCondition(weather_station)
+
+  weather_station.set_measurements(80, 65, 30.4)
+  print
+  weather_station.set_measurements(82, 70, 29.2)
+  print
+  weather_station.remove_observer(statistics_display)
+  weather_station.set_measurements(78, 95, 29.2)
 

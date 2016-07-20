@@ -77,11 +77,13 @@ class ChicagoPizzaStore(PizzaStore):
 
     return pizza
 
-# sample code
+# testing
 
-ny_store = NYPizzaStore()
-ny_store.order_pizza('veggie')
+if __name__ == '__main__':
 
-chicago_store = ChicagoPizzaStore()
-chicago_store.order_pizza('veggie')
+  ny_store = NYPizzaStore()
+  ny_store.order_pizza('veggie')
+
+  chicago_store = ChicagoPizzaStore()
+  chicago_store.order_pizza('veggie')
 

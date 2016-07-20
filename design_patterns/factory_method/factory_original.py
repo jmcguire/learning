@@ -82,11 +82,13 @@ class PizzaStore(object):
 
 # sample code
 
-ny_factory = NYPizzaFactory()
-ny_store = PizzaStore(ny_factory)
-ny_store.order_pizza('veggie')
+if __name__ == '__main__':
 
-chicago_factory = ChicagoPizzaFactory()
-chicago_store = PizzaStore(chicago_factory)
-chicago_store.order_pizza('veggie')
+  ny_factory = NYPizzaFactory()
+  ny_store = PizzaStore(ny_factory)
+  ny_store.order_pizza('veggie')
+
+  chicago_factory = ChicagoPizzaFactory()
+  chicago_store = PizzaStore(chicago_factory)
+  chicago_store.order_pizza('veggie')
 

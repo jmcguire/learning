@@ -33,12 +33,14 @@ class Tea(object):
 
 # testing
 
-coffee = Coffee()
-tea = Tea()
+if __name__ == '__main__':
 
-print "making coffee..."
-coffee.prepare()
+  coffee = Coffee()
+  tea = Tea()
 
-print "\nmaking tea..."
-tea.prepare()
+  print "making coffee..."
+  coffee.prepare()
+
+  print "\nmaking tea..."
+  tea.prepare()
 

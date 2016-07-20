@@ -45,16 +45,18 @@ class TurkeyAdaptor(Duck):
 
 # testing
 
-def test_duck(duck):
-  print "testing out this duck's ability to quack and fly..."
-  duck.quack()
-  duck.fly()
-  print
+if __name__ == '__main__':
 
-mallard = MallardDuck()
-wild_turkey = WildTurkey()
-turkey_in_disguise = TurkeyAdaptor(wild_turkey)
+  def test_duck(duck):
+    print "testing out this duck's ability to quack and fly..."
+    duck.quack()
+    duck.fly()
+    print
 
-test_duck(mallard)
-test_duck(turkey_in_disguise)
+  mallard = MallardDuck()
+  wild_turkey = WildTurkey()
+  turkey_in_disguise = TurkeyAdaptor(wild_turkey)
+
+  test_duck(mallard)
+  test_duck(turkey_in_disguise)
 

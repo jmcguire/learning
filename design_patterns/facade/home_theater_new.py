@@ -44,16 +44,18 @@ class HomeTheatreFacade(object):
           
 # testing
 
-popcorn = PopcornMaker()
-lights = Lights()
-screen = Screen()
-dvd = DvdPlayer()
+if __name__ == '__main__':
 
-home_theatre = HomeTheatreFacade(popcorn, lights, screen, dvd)
+  popcorn = PopcornMaker()
+  lights = Lights()
+  screen = Screen()
+  dvd = DvdPlayer()
 
-print "starting movie..."
-home_theatre.watch_movie()
+  home_theatre = HomeTheatreFacade(popcorn, lights, screen, dvd)
 
-print "\ndone with movie..."
-home_theatre.end_movie()
+  print "starting movie..."
+  home_theatre.watch_movie()
+
+  print "\ndone with movie..."
+  home_theatre.end_movie()
 

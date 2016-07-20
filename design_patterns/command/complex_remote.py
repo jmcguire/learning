@@ -183,67 +183,69 @@ class RemoteControl(object):
 
 # testing
 
-def remote_loader(remote):
-  kitchen_light = Light("kitchen")
-  kitchen_light_on = LightOnCommand(kitchen_light)
-  kitchen_light_off = LightOffCommand(kitchen_light)
+if __name__ == '__main__':
 
-  bedroom_light = Light("bedroom")
-  bedroom_light_on = LightOnCommand(bedroom_light)
-  bedroom_light_off = LightOffCommand(bedroom_light)
+  def remote_loader(remote):
+    kitchen_light = Light("kitchen")
+    kitchen_light_on = LightOnCommand(kitchen_light)
+    kitchen_light_off = LightOffCommand(kitchen_light)
 
-  garage_door = GarageDoor()
-  garage_door_open = GarageDoorOpenCommand(garage_door)
-  garage_door_close = GarageDoorCloseCommand(garage_door)
+    bedroom_light = Light("bedroom")
+    bedroom_light_on = LightOnCommand(bedroom_light)
+    bedroom_light_off = LightOffCommand(bedroom_light)
 
-  stereo = Stereo()
-  stereo_on = StereoCDOnCommand(stereo)
-  stereo_off = StereoCDOffCommand(stereo)
+    garage_door = GarageDoor()
+    garage_door_open = GarageDoorOpenCommand(garage_door)
+    garage_door_close = GarageDoorCloseCommand(garage_door)
 
-  remote.set_slot(0, kitchen_light_on, kitchen_light_off)
-  remote.set_slot(1, bedroom_light_on, bedroom_light_off)
-  remote.set_slot(2, garage_door_open, garage_door_close)
-  remote.set_slot(3, stereo_on, stereo_off)
+    stereo = Stereo()
+    stereo_on = StereoCDOnCommand(stereo)
+    stereo_off = StereoCDOffCommand(stereo)
 
-  # now lets set up some macros.
-  # these macros don't really have a good concept of "off", so we're giving them
-  # a null step instead.
-  no_command = NoCommand()
-  come_home_macro = MacroCommand(garage_door_open, kitchen_light_on, stereo_on)
-  head_to_bed_macro = MacroCommand(kitchen_light_off, stereo_off, bedroom_light_on)
+    remote.set_slot(0, kitchen_light_on, kitchen_light_off)
+    remote.set_slot(1, bedroom_light_on, bedroom_light_off)
+    remote.set_slot(2, garage_door_open, garage_door_close)
+    remote.set_slot(3, stereo_on, stereo_off)
 
-  remote.set_slot(5, come_home_macro, no_command)
-  remote.set_slot(6, head_to_bed_macro, no_command)
+    # now lets set up some macros.
+    # these macros don't really have a good concept of "off", so we're giving them
+    # a null step instead.
+    no_command = NoCommand()
+    come_home_macro = MacroCommand(garage_door_open, kitchen_light_on, stereo_on)
+    head_to_bed_macro = MacroCommand(kitchen_light_off, stereo_off, bedroom_light_on)
 
-remote = RemoteControl()
-remote_loader(remote)
+    remote.set_slot(5, come_home_macro, no_command)
+    remote.set_slot(6, head_to_bed_macro, no_command)
 
-remote.display()
-print
+  remote = RemoteControl()
+  remote_loader(remote)
 
-remote.turn_on(0)
-remote.undo()
-remote.turn_on(1)
-remote.turn_on(2)
-remote.turn_on(3)
-remote.undo()
-print
+  remote.display()
+  print
 
-remote.turn_off(1)
-remote.turn_off(2)
-remote.undo()
-remote.turn_on(3)
-remote.turn_off(3)
-remote.undo()
-print
+  remote.turn_on(0)
+  remote.undo()
+  remote.turn_on(1)
+  remote.turn_on(2)
+  remote.turn_on(3)
+  remote.undo()
+  print
 
-# test macro commands
+  remote.turn_off(1)
+  remote.turn_off(2)
+  remote.undo()
+  remote.turn_on(3)
+  remote.turn_off(3)
+  remote.undo()
+  print
 
-print "testing macro commands"
+  # test macro commands
 
-remote.turn_on(5)
-remote.turn_off(5)
+  print "testing macro commands"
 
-remote.turn_on(5)
-remote.undo()
+  remote.turn_on(5)
+  remote.turn_off(5)
+
+  remote.turn_on(5)
+  remote.undo()
 

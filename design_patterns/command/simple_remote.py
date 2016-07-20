@@ -42,15 +42,17 @@ class SimpleRemoteControl(object):
 
 # testing
 
-light_switch = Light()
-light_button = LightOnCommand(light_switch)
-remote = SimpleRemoteControl()
-remote.set_command(light_button)
-remote.press_button()
+if __name__ == '__main__':
 
-garage_door = GarageDoor()
-garage_button = GarageDoorOpenCommand(garage_door)
-remote2 = SimpleRemoteControl()
-remote2.set_command(garage_button)
-remote2.press_button()
+  light_switch = Light()
+  light_button = LightOnCommand(light_switch)
+  remote = SimpleRemoteControl()
+  remote.set_command(light_button)
+  remote.press_button()
+
+  garage_door = GarageDoor()
+  garage_button = GarageDoorOpenCommand(garage_door)
+  remote2 = SimpleRemoteControl()
+  remote2.set_command(garage_button)
+  remote2.press_button()
 

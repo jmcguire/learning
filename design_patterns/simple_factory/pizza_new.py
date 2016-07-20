@@ -51,8 +51,11 @@ class PizzaStore(object):
 
     return pizza
 
-# sample code
 
-factory = PizzaFactory()
-store = PizzaStore(factory)
+# testing
+
+if __name__ == '__main__':
+
+  factory = PizzaFactory()
+  store = PizzaStore(factory)
 

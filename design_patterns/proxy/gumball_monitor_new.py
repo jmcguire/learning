@@ -25,9 +25,11 @@ class GumballMachineProxy(object):
       # it' just an attribute, return it
       return check_attr
 
-gumball_machine = GumballMachine("Boston", 112)
-proxy = GumballMachineProxy(gumball_machine)
-monitor = GumballMonitor(proxy)
+if __name__ == '__main__':
 
-monitor.report()
+  gumball_machine = GumballMachine("Boston", 112)
+  proxy = GumballMachineProxy(gumball_machine)
+  monitor = GumballMonitor(proxy)
+
+  monitor.report()
 
