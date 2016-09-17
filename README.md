@@ -31,3 +31,7 @@ mkdir -p sp_err
 for file in **/README.md; do cat $file | aspell -a | grep -v '^*' >sp_err/`echo $file | sed 's,[/.],_,g'`; done
 ```
 
+## Author
+
+Justin McGuire &mdash; <jm@landedstar.com> &mdash; <a href="https://twitter.com/landedstar">@landedstar.com</a> &mdash; http://landedstar.com
+
