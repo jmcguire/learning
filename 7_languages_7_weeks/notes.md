@@ -6,19 +6,19 @@ if foo
 end
 
 unless foo
-	stuff
+  stuff
 end
 
 while foo
-	stuff
+  stuff
 end
 
 begin
-	stuff
+  stuff
 end while foo
 
 until foo
-	stuff
+  stuff
 end
 
 for foo in 1..10
@@ -53,9 +53,12 @@ everything but *nil* and *false* evaluate to true. even 0.
 
 ## functions
 
+```
 def foo
-	stuff
+  stuff
 end
+
+```
 
 
 ## basic functions
@@ -73,14 +76,14 @@ gets() # get input from user
 basic syntax
 
 
-```
-class Foo
-	attr_accessor :bar
-	def initialize(bar)
-		@bar = bar
-	end
-end
-```
+    class Foo
+      attr_accessor :bar
+      def initialize(bar)
+        @bar = bar
+      end
+    end
+
+useful methods
 
 ```
 foo.class   # gives the class name
@@ -90,11 +93,45 @@ foo.methods.include?(:bar) # does the foo object include the method bar
 foo.object_id #  return a unique string that ids the object
 ```
 
+Classes are open, meaning they can be added to simply. To add a method to an existing class, just use regular class creation syntax.
+
+    class Numeric
+      def inches
+        self
+      end
+      def feet
+        self * 12.inches
+      end
+    end
+
+### Metamethods
+
+You can redefine metamethods for your own use.
+
+    class Foo
+      def self.method_missing name, *args
+        ...
+      end
+    end
+
+Why `self.foo`? Using `self` essentially makes it a class method instead of an instance method. This means `Foo.bar` instead of `Foo.new.bar`.
+
+
 ### inheritance
 
  - Ruby uses single inheritance and mixins. Mixins are called "modules".
  - A module is defined like a class, but uses "module" instead of "class", and has a bunch of methods.
  - to include a mixin, add `include MixinName` at the top of the class.
+
+    module Bar
+      def gaz
+        stuff
+      end
+    end
+
+    class Foo < Parent
+      include Bar
+    end
 
 
 ## strings
@@ -139,18 +176,18 @@ if a code block is the last parameter of a function call, it doesn't have to be 
 
 pass around code with &code. no idea why
 
-		def foo(&code)
-			code.call
-		end
+    def foo(&code)
+      code.call
+    end
 
 **yield** - a function can take in a code block, and call it in the middle of itself. a ruby-esque way to do that is to use the yield keyword. it means "even though we didn't take code as a parameter, execute the code block that followed the invocation of this function".
 
-		def foo
-			stuff
-			yield
-			stuff
-		end
+    def foo
+      stuff
+      yield
+      stuff
+    end
 
-		foo {code}
+    foo {code}
 
 
