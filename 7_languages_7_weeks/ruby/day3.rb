@@ -29,27 +29,27 @@ module ActsAsCsv
       end
     end
 
-		def each &block
-			csv_rows = @csv_contents.collect {|r| CsvRow.new(@headers, r)}
-			csv_rows.each(&block)
-		end
+    def each &block
+      csv_rows = @csv_contents.collect {|r| CsvRow.new(@headers, r)}
+      csv_rows.each(&block)
+    end
   end
 end
 
 
 class CsvRow
-	attr_accessor :headers, :row
+  attr_accessor :headers, :row
 
-	def initialize headers, row
-		@headers = headers
-		@row = row
-	end
+  def initialize headers, row
+    @headers = headers
+    @row = row
+  end
 
-	def method_missing name, *args
-		header = name.to_s
-		index = @headers.index(header)
-		@row[index]
-	end
+  def method_missing name, *args
+    header = name.to_s
+    index = @headers.index(header)
+    @row[index]
+  end
 end
 
 

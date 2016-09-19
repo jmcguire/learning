@@ -27,21 +27,21 @@
 
 ## BRANCHING AND LOOPING
 
-		while ... :
-			...
+    while ... :
+      ...
 
-		for variable in list:
-			...
+    for variable in list:
+      ...
 
-		while ... :
-			continue ## goes to the next thing in the "while" of "for" loop
+    while ... :
+      continue ## goes to the next thing in the "while" of "for" loop
 
-		if ... :
-			...
-		elif ... :
-			...
-		else:
-			...
+    if ... :
+      ...
+    elif ... :
+      ...
+    else:
+      ...
 
 Keywords:
 
@@ -50,36 +50,36 @@ Keywords:
 
 Weird branching and looping
 
-		for foo in bar:
-			...
-		else
-			... # this will happen once, after the for-loop is finished
+    for foo in bar:
+      ...
+    else
+      ... # this will happen once, after the for-loop is finished
 
 How to break out of an inner loop
 
-		for: 							# outer loop
-			for:						# inner loop
-				if foo:
-					break				# will break inner loop, and skip the else below
-			else:
-				continue			# if we didn't break, continue the outer loop
-			break						# will break the outer loop
+    for:               # outer loop
+      for:            # inner loop
+        if foo:
+          break        # will break inner loop, and skip the else below
+      else:
+        continue      # if we didn't break, continue the outer loop
+      break            # will break the outer loop
 
 
 
 ## DICTIONARY OBJECT
 
-		dict_var = {
-			'a': 'A',
-			'b': 'B',
-		}
+    dict_var = {
+      'a': 'A',
+      'b': 'B',
+    }
 
-		['...'] # get or set the item
+    ['...'] # get or set the item
 
-		foo.items() # return every key value pair (list of lists)
+    foo.items() # return every key value pair (list of lists)
 
-		foo.get(...) # get a value without creating it
-		foo.get(..., ...) # return a default value if it doesn't exist
+    foo.get(...) # get a value without creating it
+    foo.get(..., ...) # return a default value if it doesn't exist
 
 
 ## COMPARISON OPERATORS
@@ -100,12 +100,12 @@ How to break out of an inner loop
 
 ## COMMON OBJECT METHODS
 
-		list.pop(0)
-		list.pop(-1)
-		list.append(...)
-		string.split('...')
+    list.pop(0)
+    list.pop(-1)
+    list.append(...)
+    string.split('...')
 
-		'x'.join(list)
+    'x'.join(list)
 
 
 ## IMPORTING AND IMPORTS
@@ -123,48 +123,48 @@ How to break out of an inner loop
 
 ## PRINTING
 
-		print
-		%
+    print
+    %
 
-		print "%s %d %r" % (...)
+    print "%s %d %r" % (...)
 
-		print string_one + string_two
+    print string_one + string_two
 
-		print """
-		"""
+    print """
+    """
 
-		print """
-		""" % ...
+    print """
+    """ % ...
 
-		print '''
-		'''
+    print '''
+    '''
 
-		print '.' * 10
+    print '.' * 10
 
-		import pprint
-		pp = pprint.PrettyPrinter(indent=4)
-		pp.pprint(...)
+    import pprint
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(...)
 
 
 ## STRING
 
-		name += first_name + ' ' + last_name
+    name += first_name + ' ' + last_name
 
 
 ## FILES
 
-		file = open(filename)
-		file.read()
+    file = open(filename)
+    file.read()
 
-		open(filename).read()
+    open(filename).read()
 
-		open(filename, 'w')
-		file.truncate()
-		file.write(...)
+    open(filename, 'w')
+    file.truncate()
+    file.write(...)
 
-		file.close()
+    file.close()
 
-		file.seek(0)
+    file.seek(0)
 
 
 ## FUNCTIONS
@@ -174,53 +174,53 @@ How to break out of an inner loop
  - *args
 
 
-		def no_args():
-			...
+    def no_args():
+      ...
 
-		def two_args(arg1, arg2):
-			...
+    def two_args(arg1, arg2):
+      ...
 
-		def arbitrary_args(*args):
-			arg1, arg2 = args
-			...
+    def arbitrary_args(*args):
+      arg1, arg2 = args
+      ...
 
-		def nothing_happens:
-			pass
+    def nothing_happens:
+      pass
 
 
 ## OBJECTS
 
 in general
 
-		class MyObject(object):
-			def __init__(self, variable_in):
-				self.class_variable = variable_in
-			def my_function(self, other_variable):
-				...
+    class MyObject(object):
+      def __init__(self, variable_in):
+        self.class_variable = variable_in
+      def my_function(self, other_variable):
+        ...
 
 child objects
 
-		class ChildObject(ParentObject):
-			def parent_function(self):
-				...
-				super(ChildObject, self).parent_function
-				...
+    class ChildObject(ParentObject):
+      def parent_function(self):
+        ...
+        super(ChildObject, self).parent_function
+        ...
 
 super(object_name)
 
 
 ## MODULES
 
-		import yaml
-		yaml.load(file('file.yaml'))
+    import yaml
+    yaml.load(file('file.yaml'))
 
 
 ## COMMENT
 
-		# basic comment
+    # basic comment
 
-		def subname:
-			"""One-line comment about the function."""
-			pass
+    def subname:
+      """One-line comment about the function."""
+      pass
 
 

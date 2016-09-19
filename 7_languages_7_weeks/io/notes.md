@@ -17,9 +17,9 @@ Objects keep track of what it was cloned from. If it can't respond to a message,
 Objects have slots. Each slot can hold an object. (And since everything is an object, a lost can hold anything.)
 
 
-  	Vehicle := Object clone # pass the message `clone` to `Object`, and assign it to `Vehicle`
-  	Vehicle description := "something that moves" # create a new slot, and assign it a string
-  	Vehicle description = "something that moves you" # reassign a slot
+    Vehicle := Object clone # pass the message `clone` to `Object`, and assign it to `Vehicle`
+    Vehicle description := "something that moves" # create a new slot, and assign it a string
+    Vehicle description = "something that moves you" # reassign a slot
 
 
 ### Nomenclature
@@ -31,10 +31,10 @@ Objects have slots. Each slot can hold an object. (And since everything is an ob
 ### Common messages for objects
 
 
-  	Foo slotNames 			# get all slots for this object (not its ancestors)
-  	Foo type 						# get the type of this object. usually its name
-  	Foo getSlot("name") # get the object in this slot (will go to the ancestors)
-  	Foo proto 					# get the prototype (ancestor) information
+    Foo slotNames       # get all slots for this object (not its ancestors)
+    Foo type             # get the type of this object. usually its name
+    Foo getSlot("name") # get the object in this slot (will go to the ancestors)
+    Foo proto           # get the prototype (ancestor) information
 
 
 ### Misc
@@ -43,40 +43,40 @@ To see all the objects, call `Lobby`.
 
 To make a singleton:
 
-  	Highlander := Object clone
-  	Highlander clone := Highlanger
+    Highlander := Object clone
+    Highlander clone := Highlanger
 
 
 ## Methods
 
-  	method("vroom" prinln) # create a method that prints "vroom" with a newline
+    method("vroom" prinln) # create a method that prints "vroom" with a newline
 
 ## Lists
 
-  	list("one", "two", 3)
+    list("one", "two", 3)
 
 Messages on a list
 
-  	list (1,2,3) average
-  	list (1,2,3) sum
-  	list (1,2,3) at(n) # n is a number
-  	list (1,2,3) append(foo)
-  	list (1,2,3) pop
-  	list (1,2,3) prepend(foo)
-  	list (1,2,3) isEmpty
+    list (1,2,3) average
+    list (1,2,3) sum
+    list (1,2,3) at(n) # n is a number
+    list (1,2,3) append(foo)
+    list (1,2,3) pop
+    list (1,2,3) prepend(foo)
+    list (1,2,3) isEmpty
 
 ## Maps
 
-  	foo := Map clone
+    foo := Map clone
 
 Messages on a map
 
-  	foo atPut("key", "value")
-  	foo at("key")
-  	foo asObject # return the keys and values
-  	foo asList # a list of lists, where each inner list is (key, value)
-  	foo keys
-  	foo size # number of keys
+    foo atPut("key", "value")
+    foo at("key")
+    foo asObject # return the keys and values
+    foo asList # a list of lists, where each inner list is (key, value)
+    foo keys
+    foo size # number of keys
 
 ## Logic
 
