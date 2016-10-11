@@ -98,14 +98,28 @@ How to break out of an inner loop
  - is
 
 
-## COMMON OBJECT METHODS
+## FUNCTIONS FOR STRINGS
+
+    'x'.join(list)
+
+
+## FUNCTIONS FOR LISTS
 
     list.pop(0)
     list.pop(-1)
-    list.append(...)
+    list.append(single_item)
+    list.extend(list_of_items)
     string.split('...')
 
-    'x'.join(list)
+    len(list) # not list.len()
+    list.sort() # sorts in place
+
+
+## FUNCTIONS FOR NUMBERS
+
+    max(number)
+    min(number)
+    round(number, float_precision) # round(14.123, 1) == 14.1
 
 
 ## IMPORTING AND IMPORTS
@@ -117,6 +131,7 @@ How to break out of an inner loop
  - from sys import exit
  - from os.path import exists
  - argv
+ - argv[1] - the first command line argument
  - exists
  - exit(0)
 
@@ -223,4 +238,30 @@ super(object_name)
       """One-line comment about the function."""
       pass
 
+
+## PROCESS COMMAND LINE OPTIONS
+
+    import sys
+    import getopts
+
+    try:
+      opts, args = getopt.getopt(sys.argv[1:], 'hu:c:', ['user=', 'comment='])
+    except getopt.GetoptError:
+      print "%s [-h] [-u | -user <username>] [-c | -comment <comment_id>]" % sys.argv[0]
+      sys.exit(2)
+
+    for opt, arg, in opts:
+      if opt in ['u', 'user']:
+        get_user(arg)
+      elif opt in ['c', 'comment']:
+        get_comment(arg)
+      elif opt == '-h':
+        get_help()
+
+
+## DISTRIBUTING PACKAGES
+
+    python setup.py sdist
+    python setup.py register pypi
+    python setup.py sdist upload pypi
 
