@@ -73,6 +73,6 @@ def _mergesort_merge(A, temp, start, middle, end):
   # now copy temp back to A
   # (there is a way to avoid this step, by reversing A and temp in the
   # _mergesort recursive calls, but that complicates the learning.)
-  for i in range(start,end+1):
+  for i in xrange(start,end+1):
     A[i] = temp[i]
 

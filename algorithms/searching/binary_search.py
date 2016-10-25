@@ -40,6 +40,6 @@ def test(A, e):
 
 A = range(1,100)
 
-for e in range (0,101):
+for e in xrange (0,101):
   test(A, e)
 

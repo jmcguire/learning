@@ -13,7 +13,7 @@
 
 def heapsort(A):
   _init_heap(A)
-  for i in range(len(A)-1, 0, -1):
+  for i in xrange(len(A)-1, 0, -1):
     # move the largest element to the end
     swap(A,0,i)
     # re-heapify to put the largest element at position 0
@@ -21,7 +21,7 @@ def heapsort(A):
 
 def _init_heap(A):
   # len(A)//2 - 1 is the highest parent that can exist in a heap
-  for i in range(len(A)//2 - 1, -1, -1):
+  for i in xrange(len(A)//2 - 1, -1, -1):
     _heapify(A, i, len(A)-1)
 
 def _heapify(A, start, end):

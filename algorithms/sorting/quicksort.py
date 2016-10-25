@@ -30,7 +30,7 @@ def partition(A, left, right, pivot):
   A[right], A[pivot] = A[pivot], A[right]
 
   middle = left # middle points to where the numbers larger than the pivot begin
-  for i in range(left, right):
+  for i in xrange(left, right):
     #print "checking %d, %d" % (i, middle)
     if A[i] <= A[right]: # right is where the pivot currently is
       A[i], A[middle] = A[middle], A[i]

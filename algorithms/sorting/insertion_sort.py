@@ -11,13 +11,13 @@
 
 # from 1 to length, place that element into the previous array
 def insertion_sort(A):
-  for i in range(0, len(A)):
+  for i in xrange(0, len(A)):
     #print "starting at position %d" % i
     _insert_sort(A, i)
 
 # sort the element at start into the part of the array before it
 def _insert_sort(A, right):
-  for i in range(right, 0, -1):
+  for i in xrange(right, 0, -1):
     #print "  checking %d:%s and %d:%s" % (i, A[i], i-1, A[i-1])
     if A[i] < A[i-1]:
       #print "  %s < %s" % (A[i], A[i-1])

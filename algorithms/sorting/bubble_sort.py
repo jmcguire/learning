@@ -10,9 +10,9 @@
 
 def bubble_sort(A):
   #print "from %d to %d" % (len(A)-1, 0)
-  for i in range(len(A)-1, 0, -1):
+  for i in xrange(len(A)-1, 0, -1):
     #print "  from %d to %d" % (0, i-1)
-    for j in range(1, i+1):
+    for j in xrange(1, i+1):
       #print "    checking %d:%s and %d:%s" % (j, A[j], j-1, A[j-1])
       if A[j] < A[j-1]:
         #print "    %s < %s, swap" % (A[j], A[j-1])
