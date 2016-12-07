@@ -229,6 +229,11 @@ super(object_name)
     import yaml
     yaml.load(file('file.yaml'))
 
+to see your import path, which is modified by PYTHONLIB:
+
+    import sys.path
+    print sys.path
+
 
 ## COMMENT
 
