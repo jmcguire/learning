@@ -110,6 +110,7 @@ How to break out of an inner loop
     list.append(single_item)
     list.extend(list_of_items)
     string.split('...')
+    string.split() # default to any amount of whitespace
 
     len(list) # not list.len()
     list.sort() # sorts in place
@@ -181,6 +182,12 @@ How to break out of an inner loop
 
     file.seek(0)
 
+In actual use, use `with` to give context. With it, the file knows to close
+itself when the context goes away.
+
+    with open(filename, 'r') as file_in:
+        # do stuff with file_in
+
 
 ## FUNCTIONS
 
@@ -243,6 +250,13 @@ to see your import path, which is modified by PYTHONLIB:
       """One-line comment about the function."""
       pass
 
+## EXCEPTION HANDLING
+
+    try:
+        # do stuff
+    except ExceptionType as err
+        # do stuff with err
+
 
 ## PROCESS COMMAND LINE OPTIONS
 
@@ -269,4 +283,49 @@ to see your import path, which is modified by PYTHONLIB:
     python setup.py sdist
     python setup.py register pypi
     python setup.py sdist upload pypi
+
+
+## REGULAR EXPRESSIONS
+
+Regular expressions aren't as integrated as in Perl, but Python does give you a
+regexp string type, `r'regexp'` to help. This string won't interpret anything in
+the string. This lets you do stuff like `r'\1 \2 \\ comment'` without fear of an
+unreadable amount of backslash escaping.
+
+    import re
+
+    # returns a match object, which evaluates to true or false in a boolean context (if statement)
+    re.search(r'regexp', string)
+
+    # returns new string
+    # replaces globally by default
+    new_string = re.sub(r'regexp_from', r'regexp_to', string)
+
+## GENERATORS
+
+Any function with a `yield` statement is a generator (a special purpose
+coroutine). `yield` means returns a value, but maintains its state, and the next
+time the function is called it will return to where the `yield` was called.
+
+This whole thing is a way to lazily produce values.
+
+    def get_primes(start, amount):
+        """get amount number of primes, starting at start"""
+        n = start
+        while amount > 0
+            if is_prime(n):
+                amount -= 1
+                yield n
+            n += 1
+    
+    # get the first 10 primes
+    primes = get_primes(1, 10)
+
+    for prime in primes:
+        print prime
+
+
+In the above, `primes` is actually a generator object. The `for` statement just
+calls `next(primes)` at every iteration, which returns to where `yield` left
+off.
 
