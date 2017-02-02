@@ -1,20 +1,20 @@
 # Io
 
  - Everything is an object.
- - everything is messages and recievers.
+ - Everything is messages and recievers.
 
 ## Messages
 
-`reciever message` - pass the message tot he reciever
+`reciever message` - pass the message to the reciever
 
 
 ## Objects
 
 :Prototype Objects: Objects are created by cloning, not by classes. There are no classes.
 
-Objects keep track of what it was cloned from. If it can't respond to a message, it passed the message to it's ancestor.
+Objects keep track of what it was cloned from. If it can't respond to a message, it passes the message to its ancestor.
 
-Objects have slots. Each slot can hold an object. (And since everything is an object, a lost can hold anything.)
+Objects have slots. Each slot can hold an object. (And since everything is an object, a slot can hold anything.)
 
 
     Vehicle := Object clone # pass the message `clone` to `Object`, and assign it to `Vehicle`
@@ -32,7 +32,7 @@ Objects have slots. Each slot can hold an object. (And since everything is an ob
 
 
     Foo slotNames       # get all slots for this object (not its ancestors)
-    Foo type             # get the type of this object. usually its name
+    Foo type            # get the type of this object. usually its name
     Foo getSlot("name") # get the object in this slot (will go to the ancestors)
     Foo proto           # get the prototype (ancestor) information
 
@@ -50,6 +50,7 @@ To make a singleton:
 ## Methods
 
     method("vroom" prinln) # create a method that prints "vroom" with a newline
+
 
 ## Lists
 

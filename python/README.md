@@ -142,20 +142,31 @@ How to break out of an inner loop
     print
     %
 
-    print "%s %d %r" % (...)
-
+    # concatenation
     print string_one + string_two
 
+    # block
     print """
     """
 
-    print """
-    """ % ...
-
+    # block, same as above
     print '''
     '''
 
-    print '.' * 10
+    # block with interpolation
+    print """
+    """ % ...
+
+    # string multiplication
+    print 'ha ' * 3
+
+Interpolation and formatting options, including templates.
+
+    print "%s %d %r" % (string, decimal, raw_format)
+
+    print "%{name}s is %{age}d" % {'name': 'justin', 'age': 37}
+
+Debugging:
 
     import pprint
     pp = pprint.PrettyPrinter(indent=4)
@@ -172,6 +183,8 @@ How to break out of an inner loop
     file = open(filename)
     file.read()
 
+    file.read() # get all lines
+
     open(filename).read()
 
     open(filename, 'w')
@@ -187,6 +200,12 @@ itself when the context goes away.
 
     with open(filename, 'r') as file_in:
         # do stuff with file_in
+
+To get a bunch of files in a directory, there are a few options. I like glob.
+
+    import glob
+    for filename in glob('directory/*.html'):
+        # do stuff with the filename
 
 
 ## FUNCTIONS
@@ -212,7 +231,7 @@ itself when the context goes away.
 
 ## OBJECTS
 
-in general
+In general
 
     class MyObject(object):
       def __init__(self, variable_in):
@@ -220,7 +239,7 @@ in general
       def my_function(self, other_variable):
         ...
 
-child objects
+Child objects
 
     class ChildObject(ParentObject):
       def parent_function(self):
@@ -236,7 +255,7 @@ super(object_name)
     import yaml
     yaml.load(file('file.yaml'))
 
-to see your import path, which is modified by PYTHONLIB:
+To see your import path, which is modified by PYTHONLIB:
 
     import sys.path
     print sys.path
@@ -249,6 +268,7 @@ to see your import path, which is modified by PYTHONLIB:
     def subname:
       """One-line comment about the function."""
       pass
+
 
 ## EXCEPTION HANDLING
 
@@ -288,7 +308,7 @@ to see your import path, which is modified by PYTHONLIB:
 ## REGULAR EXPRESSIONS
 
 Regular expressions aren't as integrated as in Perl, but Python does give you a
-regexp string type, `r'regexp'` to help. This string won't interpret anything in
+raw string type, `r'regexp'` to help. This string won't interpret anything in
 the string. This lets you do stuff like `r'\1 \2 \\ comment'` without fear of an
 unreadable amount of backslash escaping.
 
@@ -304,10 +324,30 @@ unreadable amount of backslash escaping.
 ## GENERATORS
 
 Any function with a `yield` statement is a generator (a special purpose
-coroutine). `yield` means returns a value, but maintains its state, and the next
-time the function is called it will return to where the `yield` was called.
+coroutine). `yield` will return a value, but maintain its state. The next time
+the generator is called it will go back to where the `yield` was called.
 
-This whole thing is a way to lazily produce values.
+This whole shebang is a way to lazily produce values.
+
+For example, to compute an infinite amount of fibonachi numbers.
+
+    def fib():
+        a, b  = 0, 1
+        while 1:
+            yield b
+            a, b = b, a + 1
+    
+    fib_generator = fib()
+    
+    next(fib_generator)
+    next(fib_generator)
+    next(fib_generator)
+
+You can see here that fib_generator acts as an iterator. But since fib() will
+never exit from the loop, it will generate numbers forever, so you probably
+shouldn't call this in a list context.
+
+To compute a limited number of expensive-to-compute primes.
 
     def get_primes(start, amount):
         """get amount number of primes, starting at start"""
@@ -318,14 +358,79 @@ This whole thing is a way to lazily produce values.
                 yield n
             n += 1
     
-    # get the first 10 primes
-    primes = get_primes(1, 10)
-
+    # get the first 1000 primes
+    primes = get_primes(1, 1000)
+    
     for prime in primes:
         print prime
 
+Like last time, `primes` is an iterator. The `for` statement just calls
+`next(primes)` at every iteration, which returns to where `yield` left off. But
+unlike fib(), get_primes() will eventually end, so it's safe to call it in a
+list. (More specifically, when the function ends a StopIteration exception is
+raised. You can catch it if you want to do something weird, but generally it's
+just used to end a looping construct.)
 
-In the above, `primes` is actually a generator object. The `for` statement just
-calls `next(primes)` at every iteration, which returns to where `yield` left
-off.
+`yield` can be used to make coroutines in general, but its primary usage is to
+make generators.
+
+(PEP 255, PEP 342)
+
+# Ternary
+
+In most languages you can do something like this:
+
+    print name == '<null>' ? '' : name
+
+In python, the closest I can get is this:
+
+    print ('' if name == '<null'> else name)
+
+Or,
+
+    print [name, ''][name == '<null>']
+
+# Environment
+
+Use virtualenv to manage your environment locally:
+
+    virtualenv <dir>
+    . <dir>/bin/activate
+
+To install all the required libraries for a package:
+    
+    pip install -r requirements.txt
+
+# Context Manager
+
+A context manager is an object that knows how to create and close a resource.
+You use it with the `with` keyword.
+
+    class Resource():
+        def __init__(self, whatever):
+            self.whatever = whatever
+            pass
+        
+        def __enter__(self):
+            # open the resource
+            # return resource
+        
+        def __exit__(self, *args):
+            # close the resource
+    
+    with Resource(foo) as bar:
+        # play with bar
+
+Or, use a decorator with a generator function. (The function will only yield once.)
+
+    from contextlib import contextmanager
+    
+    @contextmanager
+    def open_resource(whatever):
+        # open the resource
+        # yield resource
+        # close the resource
+    
+    with open_resource(foo) as bar:
+        # play with bar
 
