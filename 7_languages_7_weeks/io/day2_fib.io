@@ -22,6 +22,9 @@ fibLoop := method(n,
 
 for(i, 1, 10,
   fibRecursion(i) println
+)
+
+for(i, 1, 10,
   fibLoop(i) println
 )
 

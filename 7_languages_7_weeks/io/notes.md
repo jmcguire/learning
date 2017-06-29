@@ -5,26 +5,28 @@
 
 ## Messages
 
-`reciever message` - pass the message to the reciever
+`<reciever> <message>` - pass the message to the reciever
 
 Messages have three parts.
 
  - **Sender** - Who sent the message, often the surrounding method.
- - **Target** - Where the message is going, the reciever.
+ - **Target** - Where the message is going, the receiver.
  - **Arguments** - Arguments, in the parentheses. These are *not* evaluated, just passed.
 
 The `call` method gives introspection on messages.
 
     call sender
     call target
-    call messages arguments
-    call messages atArg(n)
+    call message arguments
+    call message atArg(n)
     call message name
 
 `doMessage(...)` evaluates/executes a message. Since everything is a message, this executes anything. Think eval.
 
 
 ## Objects
+
+An object is just a collection of slots. Every object has a parent, called its prototype. If you access a slot on an object, and if it doesn't exist, it looks in its prototype.
 
 :Prototype Objects: Objects are created by cloning, not by classes. There are no classes.
 
@@ -44,6 +46,7 @@ Slot Assignment. `:=` assigns a new slot, `=` assigns to an existing slot.
  - `InitialCapsObject := AnotherObject` - a new type of AnotherObject
  - `lowercaseobject := AnotherObject` - an "instance" (kinda) of AnotherObject, not a new type
 
+Both are objects. Only one is a type object.
 
 ### Common messages for objects
 
@@ -55,23 +58,28 @@ Slot Assignment. `:=` assigns a new slot, `=` assigns to an existing slot.
 
 ### Misc
 
-To see all the objects in the global "namespace", call `Lobby`.
+ - `Lobby` - All the objects in the global namespace.
+ - `OperatorTable` - All operators.
 
 To make a singleton:
 
     Highlander := Object clone
-    Highlander clone := Highlanger
+    Highlander clone := Highlander
 
 
 ## Methods
 
-    method("vroom" prinln) # create a method that prints "vroom" with a newline
+    method("vroom" println) # create a method that prints "vroom" with a newline
 
 Everything except the last message is an argument. You can access those arguments in the last message.
 
     printAll := method(a, b, list(a, b) foreach(item, item println))
     printAll("justin", "carolyn")
 
+### Lobby Methods
+
+ - "text" println
+ - writeln("text")
 
 ## Lists
 
@@ -99,6 +107,7 @@ Messages on a map
     foo asObject # return the keys and values
     foo asList # a list of lists, where each inner list is (key, value)
     foo keys
+    foo values
     foo size # number of keys
 
 ## Logic
@@ -122,4 +131,12 @@ Messages on a map
 
     if(conditional, code_for_true, code_for_false)
     if(conditional) then(code_for_true) else(code_for_false)
+
+# Syntax
+
+    ; separates statements - is required between statements in control constructs.
+
+Note: In a file, a simple newline is all that's required to separate statements in a method. But if using the REPL, you need ;s.
+
+    , separates arguments - in a method and control constructs
 
